@@ -1,5 +1,8 @@
 console.log('Hello World!')
 
+let humanScore = 0;
+let computerScore = 0;
+
     function getRandomInt(min, max) {
         const minCeiled = Math.ceil(min);
         const maxFloored = Math.floor(max);
@@ -9,25 +12,60 @@ console.log('Hello World!')
    
     function getComputerChoice() {
 
-        let computerChoice = '';
+        let compChoice = '';
         let randomInt = getRandomInt(0, 3);
 
         if (randomInt === 0) {
-            computerChoice = 'rock';
+            compChoice = 'rock';
         } else if (randomInt === 1) {
-            computerChoice = 'paper';
+            compChoice = 'paper';
         } else {
-            computerChoice = 'scissors'
+            compChoice = 'scissors'
         }
-        return computerChoice;
+        return compChoice;
     }
 
     function getHumanChoice() {
-        let humanChoice = window.prompt('Rock, paper, or scissors?');
-        return humanChoice;
+        let humChoice = prompt('Rock, paper, or scissors?').toLowerCase();
+        return humChoice;
 
     }
 
-    console.log(getHumanChoice());
+    function playRound(humanChoice, computerChoice) {
+
+        if (humanChoice === 'rock' && computerChoice === 'paper') {
+            console.log('You lose!');
+            computerScore++;
+        } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+            console.log('You win!');
+            humanScore++;
+        } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
+            console.log('You lose!');
+            computerScore++;
+        } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+            console.log('You win!');
+            humanScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+            console.log('You win!');
+            humanScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+            console.log('You lose!');
+            computerScore++
+        } else {
+            console.log('its a tie!')
+        }
+    }
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+
+
+playRound(humanSelection, computerSelection);
+console.log(computerSelection);
+
+
+
+
 
 
