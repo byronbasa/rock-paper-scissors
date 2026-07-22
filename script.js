@@ -1,0 +1,33 @@
+console.log('Hello World!')
+
+    function getRandomInt(min, max) {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+    }
+
+   
+    function getComputerChoice() {
+
+        let computerChoice = '';
+        let randomInt = getRandomInt(0, 3);
+
+        if (randomInt === 0) {
+            computerChoice = 'rock';
+        } else if (randomInt === 1) {
+            computerChoice = 'paper';
+        } else {
+            computerChoice = 'scissors'
+        }
+        return computerChoice;
+    }
+
+    function getHumanChoice() {
+        let humanChoice = window.prompt('Rock, paper, or scissors?');
+        return humanChoice;
+
+    }
+
+    console.log(getHumanChoice());
+
+
