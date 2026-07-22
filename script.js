@@ -1,7 +1,3 @@
-console.log('Hello World!')
-
-let humanScore = 0;
-let computerScore = 0;
 
     function getRandomInt(min, max) {
         const minCeiled = Math.ceil(min);
@@ -9,12 +5,9 @@ let computerScore = 0;
         return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
     }
 
-   
     function getComputerChoice() {
-
         let compChoice = '';
         let randomInt = getRandomInt(0, 3);
-
         if (randomInt === 0) {
             compChoice = 'rock';
         } else if (randomInt === 1) {
@@ -28,8 +21,16 @@ let computerScore = 0;
     function getHumanChoice() {
         let humChoice = prompt('Rock, paper, or scissors?').toLowerCase();
         return humChoice;
-
     }
+
+
+
+
+function playGame() {
+
+    let humanScore = 0;
+    let computerScore = 0;
+    let round = 1;
 
     function playRound(humanChoice, computerChoice) {
 
@@ -56,16 +57,32 @@ let computerScore = 0;
         }
     }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+    while (round <= 5) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(humanScore);
+        console.log(computerScore);
+        round++;
+
+        if (round === 6) {
+            if (humanScore > computerScore) {
+                alert('You win the game!')
+            } else if (computerSelection > humanScore) {
+                alert('You lose the game!')
+            } else {
+                alert('You tied the game!')
+            }
+        }
+        
+
+    }
 
 
 
-playRound(humanSelection, computerSelection);
-console.log(computerSelection);
+}
 
-
-
+playGame();
 
 
 
